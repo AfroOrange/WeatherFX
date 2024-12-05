@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane fx:id="root" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <TableView fx:id="historyTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
@@ -23,7 +22,7 @@
       </TableView>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#onClearAction" text="Clear" BorderPane.alignment="BOTTOM_RIGHT">
+      <Button fx:id="clearButton" mnemonicParsing="false" onAction="#onClearAction" text="Clear" BorderPane.alignment="BOTTOM_RIGHT">
          <BorderPane.margin>
             <Insets top="5.0" />
          </BorderPane.margin>

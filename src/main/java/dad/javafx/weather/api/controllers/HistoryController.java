@@ -12,6 +12,7 @@ import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.fxml.Initializable;
@@ -30,6 +31,9 @@ public class HistoryController implements Initializable {
 
     @FXML
     private BorderPane root;
+
+    @FXML
+    private Button clearButton;
 
     @FXML
     private TableView<Weather> historyTable;
@@ -79,6 +83,13 @@ public class HistoryController implements Initializable {
             WeatherState state = data.getValue().getState();
             return new SimpleStringProperty(state != null ? state.toString() : "Unknown");
         });
+
+        //bind clearButton with historyTable
+        if (historyTable.getItems().isEmpty()) {
+            clearButton.setDisable(true);
+        } else {
+            clearButton.setDisable(false);
+        }
 
         // initialize table with data from json file
         readHistory();
